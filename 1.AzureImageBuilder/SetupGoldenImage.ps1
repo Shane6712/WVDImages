@@ -30,7 +30,7 @@ Start-Sleep -Seconds 10
 
 #InstallTeamsMachinemode
 #New-Item -Path 'HKLM:\SOFTWARE\Citrix\PortICA' -Force | Out-Null
-Invoke-WebRequest -Uri 'https://teams.microsoft.com/downloads/desktopurl?env=production&plat=windows&download=true&managedInstaller=true&arch=x64' -OutFile 'c:\temp\Teams.msi'
+Invoke-WebRequest -Uri 'https://teams.microsoft.com/downloads/desktopurl?env=production&plat=windows&download=true&managedInstaller=true&arch=x64' -OutFile 'c:\INSTALL\Teams.msi'
 Invoke-Expression -Command 'msiexec /i C:\INSTALL\Teams.msi /quiet /l*v C:\temp\teamsinstall.log ALLUSER=1'
 Start-Sleep -Seconds 30
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run32 -Name Teams -PropertyType Binary -Value ([byte[]](0x01,0x00,0x00,0x00,0x1a,0x19,0xc3,0xb9,0x62,0x69,0xd5,0x01)) -Force

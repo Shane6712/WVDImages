@@ -3,17 +3,21 @@
 #Setup some variables: $ResourceGroupName is for the Shared Image Gallery, $AIBRG is the RG that already exists and has your AIB Image in it and $HPRG is the WVD host pool RG
 $ResourceGroupName = "vdi-sig-east-us-rg"
 $AIBRG = "vdi-aib-east-us-rg"
-$HPRG = "WVD_NEU-HP2"
+$HPRG = "wvd-sig-hp"
 $SIG = "wvd-shared-image-gallery"
 $Def = "wvd-image-definition1"
 $Location = "eastus"
+$SubscriptionID = "428a21e5-ca47-401c-bb65-24687c8943b1"
+$AppID = "cf32a0cc-373c-47c9-9156-0db11f6a6dfc"
+$Role = "Contributor"
+
 
 #Either use this for Local template
-$TemplateFile = "Path To\DeployAHostPoolFromaSIGImage.json"
-$TemplateParameterFile = "Path To\DeployAHostPoolFromASIGImage.parameters.json"
+#$TemplateFile = "Path To\DeployAHostPoolFromaSIGImage.json"
+#$TemplateParameterFile = "Path To\DeployAHostPoolFromASIGImage.parameters.json"
 #Or from Github
-#$TemplateURI = "https://raw.githubusercontent.com/TomHickling/WVD-Images/master/2.SharedImageGallery/DeployAHostPoolFromASIGImage.json"
-#$TemplateParameterURI = "https://raw.githubusercontent.com/TomHickling/WVD-Images/master/2.SharedImageGallery/DeployAHostPoolFromASIGImage.parameters.json"
+$TemplateURI = "https://raw.githubusercontent.com/Shane6712/WVDImages/master/2.SharedImageGallery/DeployAHostPoolFromASIGImage.json"
+$TemplateParameterURI = "https://raw.githubusercontent.com/Shane6712/WVDImages/master/2.SharedImageGallery/DeployAHostPoolFromASIGImage.parameters.json"
 
 #Install Module if you don't have it yet
 # Install-Module Az -Force
@@ -29,20 +33,14 @@ New-AzGallery -ResourceGroupName $ResourceGroupName -name $SIG -Location $Locati
 New-AzgalleryImageDefinition -Name $Def -GalleryName $SIG -ResourceGroupName $ResourceGroupName -Location $Location -OsState generalized -OsType Windows -Publisher 'myPublisher' -Offer 'myOffer' -Sku 'mySKU'
 
 #Assign Azure Image Builder rights to the SIG
-New-AzRoleAssignment -RoleDefinitionName "Contributor" -ApplicationId "cf32a0cc-373c-47c9-9156-0db11f6a6dfc" -ResourceGroupName $ResourceGroupName
-
-
-
-
-
+New-AzRoleAssignment -RoleDefinitionName $Role -ApplicationId $AppID -ResourceGroupName $ResourceGroupName
 
 ##Distribute section. 
 #Distribute the Image metadata to Shared Image Gallery via Github
-$DistributeTemplateUri = "https://raw.githubusercontent.com/TomHickling/WVD-Images/master/2.SharedImageGallery/DistributeAnImageToSIG.json"
-#Or local file
-# $DistributeTemplatefile = "Path to\2. Shared Image Gallery\DistributeAnImageToSIG.json"
+$DistributeTemplateUri = "https://raw.githubusercontent.com/Shane6712/WVDImages/master/2.SharedImageGallery/DistributeAnImageToSIG.json"
+
 #Image Definition
-$ImageDefinitionId = "/subscriptions/7c793f65-5192-45b9-862f-698414ecf392/resourceGroups/WVD_EUS_SharedImageGallery/providers/Microsoft.Compute/galleries/WVD_Gallery/images/WVD_ImageDefinition"
+$ImageDefinitionId = "/subscriptions/$SubscriptionID/resourceGroups/$ResourceGroupName/providers/Microsoft.Compute/galleries/$SIG/images/$Def"
                     
 New-AzResourceGroupDeployment -ResourceGroupName $AIBRG -TemplateUri $DistributeTemplateUri -OutVariable Output -Verbose -SIGImageDefinitionId $ImageDefinitionId
 #Or
@@ -57,7 +55,7 @@ Invoke-AzResourceAction -ResourceGroupName $AIBRG -ResourceType Microsoft.Virtua
 
 ##WVD Host pool section
 #Start the WVD host pool deployment
-New-AzResourceGroup -Name $HPRG -Location NorthEurope
+New-AzResourceGroup -Name $HPRG -Location $Location
 #Create Shared Image Gallery
 #Either Local
 # New-AzResourceGroupDeployment -ResourceGroupName $hprg -TemplateFile $TemplateFile -TemplateParameterFile $TemplateParameterFile -Verbose

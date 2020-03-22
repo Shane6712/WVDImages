@@ -20,4 +20,4 @@ $ImageTemplateName = $Output.Outputs["imageTemplateName"].Value
 Invoke-AzResourceAction -ResourceGroupName $RG -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ResourceName $ImageTemplateName -Action Run
 
 #Check Build Process - Will say "Building" for awhile (about 20 mins) and then "Distributing"(for about 2 mins). Once complete there will be an Image in the resource Group
-(Get-AzResource -ResourceGroupName $RG -ResourceType Microsoft.VirtualMachineImages/imageTemplates -Name $ImageTemplateName).Properties.lastRunStatus
+#(Get-AzResource -ResourceGroupName $RG -ResourceType Microsoft.VirtualMachineImages/imageTemplates -Name $ImageTemplateName).Properties.lastRunStatus

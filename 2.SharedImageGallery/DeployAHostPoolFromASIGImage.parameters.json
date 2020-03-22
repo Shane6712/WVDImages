@@ -9,86 +9,86 @@
 			"value": "SharedImageGallery"
 		},
 		"SharedImageGalleryResourceGroup": {
-			"value": "WVD_EUS_SharedImageGallery"
+			"value": "vdi-sig-east-us-rg"
 		},
 		"SharedImageGalleryName": {
-			"value": "WVD_Gallery"
+			"value": "wvd-shared-image-gallery"
 		},
 		"SharedImageGalleryDefinitionName": {
-			"value": "WVD_ImageDefinition"
+			"value": "wvd-image-definition1"
 		},
 		"SharedImageGalleryVersionName": {
 			"value": "latest"
 		},
 		"hostPoolName": {
-			"value": "demohp1"
+			"value": "wvd-sig-hp1"
 		},
 		"rdshNamePrefix": {
-			"value": "demohpVMx"
+			"value": "vdi-sig"
 		},
 		"rdshNumberOfInstances": {
 			"value": 1
 		},
 		"rdshVmSize": {
-			"value": "Standard_D2s_v3"
+			"value": "Standard_B2s"
 		},
 		"rdshVMDiskType": {
 			"value": "Premium_LRS"
 		},
 		"domainToJoin": {
-			"value": "mycitrixcloud.com"
+			"value": "vdi.com"
 		},
 		"existingDomainUPN": {
-			"value": "domainjoin@mycitrixcloud.com"
+			"value": "domjoin@vdi.com"
 		},
 		"existingDomainPassword": {
 			"reference": {
 				"keyVault": {
-					"id": "/subscriptions/7c793f65-5192-45b9-862f-698414ecf392/resourcegroups/Keyvault/providers/Microsoft.KeyVault/vaults/Toms-KeyVault"
+					"id": "/subscriptions/428a21e5-ca47-401c-bb65-24687c8943b1/resourcegroups/vdi-kv-east-us-rg/providers/Microsoft.KeyVault/vaults/vdi-key-vault-east-us"
 				},
-				"secretName": "Domainjoin-Password"
+				"secretName": "DOMJOIN"
 			}
 		},
 		"ouPath": {
-			"value": "OU=WVD,DC=mycitrixcloud,DC=com"
+			"value": "OU=WVDSessionHosts,OU=azure-east-us,DC=vdi,DC=com"
 		},
 		"existingVnetName": {
-			"value": "Dublin-vNet"
+			"value": "vdi-vnet-east-us"
 		},
 		"existingSubnetName": {
-			"value": "WVD-Subnet"
+			"value": "vdi-vms-10.10.1.0_24"
 		},
 		"virtualNetworkResourceGroupName": {
-			"value": "Citrix-Dublin"
+			"value": "vdi-networking-east-us-rg"
 		},
 		"rdBrokerURL": {
 			"value": "https://rdbroker.wvd.microsoft.com"
 		},
 		"existingTenantGroupName": {
-			"value": "Microsoft Internal"
+			"value": "Default Tenant Group"
 		},
 		"existingTenantName": {
-			"value": "thhickli"
+			"value": "LW_WVDTenant"
 		},		
 		"defaultDesktopUsers": {
-			"value": "tom@mycitrixcloud.onmicrosoft.com"
+			"value": "mknouse@vdi.com"
 		},
 		"tenantAdminUpnOrApplicationId": {
-			"value": "wvd@mycitrixcloud.onmicrosoft.com"
+			"value": "adm_mknouse@vdi.com"
 		},
 		"TenantAdminPassword": {
 			"reference": {
 				"keyVault": {
-					"id": "/subscriptions/7c793f65-5192-45b9-862f-698414ecf392/resourcegroups/Keyvault/providers/Microsoft.KeyVault/vaults/Toms-KeyVault"
+					"id": "/subscriptions/428a21e5-ca47-401c-bb65-24687c8943b1/resourcegroups/vdi-kv-east-us-rg/providers/Microsoft.KeyVault/vaults/vdi-key-vault-east-us"
 				},
-				"secretName": "TenantAdmin-Password"
+				"secretName": "WVDTenantAdmin-Password"
 			}
 		},
 		"isServicePrincipal": {
 			"value": false
 		},
 		"aadTenantId": {
-			"value": "8191ebc4-5e75-4522-8ca4-8991fab98bfb"
+			"value": "36d5c1a8-b330-4330-a42f-d3f4d11f756e"
 		}
 	}
 }

@@ -4,7 +4,7 @@
 $ResourceGroupName = "vdi-sig-east-us-rg"
 $AIBRG = "vdi-aib-east-us-rg"
 $HPRG = "wvd-sig-hp-rg"
-$SIG = "wvd-shared-image-gallery"
+$SIG = "WVDSharedImageGallery"
 $Def = "wvd-image-definition1"
 $Location = "eastus"
 $SubscriptionID = "428a21e5-ca47-401c-bb65-24687c8943b1"

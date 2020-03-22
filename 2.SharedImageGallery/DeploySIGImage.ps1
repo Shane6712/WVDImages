@@ -60,5 +60,5 @@ Invoke-AzResourceAction -ResourceGroupName $AIBRG -ResourceType Microsoft.Virtua
 #Either Local
 # New-AzResourceGroupDeployment -ResourceGroupName $hprg -TemplateFile $TemplateFile -TemplateParameterFile $TemplateParameterFile -Verbose
 #OR Github
-#New-AzResourceGroupDeployment -ResourceGroupName $hprg -TemplateURI $TemplateURI -TemplateParameterUri $TemplateParameterURI -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $hprg -TemplateURI $TemplateURI -TemplateParameterUri $TemplateParameterURI -Verbose
 

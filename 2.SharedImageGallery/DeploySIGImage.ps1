@@ -3,7 +3,7 @@
 #Setup some variables: $ResourceGroupName is for the Shared Image Gallery, $AIBRG is the RG that already exists and has your AIB Image in it and $HPRG is the WVD host pool RG
 $ResourceGroupName = "vdi-sig-east-us-rg"
 $AIBRG = "vdi-aib-east-us-rg"
-$HPRG = "wvd-sig-hp"
+$HPRG = "wvd-sig-hp-rg"
 $SIG = "wvd-shared-image-gallery"
 $Def = "wvd-image-definition1"
 $Location = "eastus"

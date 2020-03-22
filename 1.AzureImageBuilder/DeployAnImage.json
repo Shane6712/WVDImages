@@ -12,18 +12,18 @@
 		},
 		"sku": {
 			"type": "string",
-			"defaultValue": "19h1-evd"
+			"defaultValue": "19h2-evd"
 		},
 		"version": {
 			"type": "string",
-			"defaultValue": "18362.418.1910070306",
+			"defaultValue": "18363.720.2003120536",
 			"metadata": {
-				"description": "Version of the image, can be found with powershell: Get-AzVMImage -Location westeurope -PublisherName MicrosoftWindowsDesktop -Offer windows-10 -Skus 19h1-evd"
+				"description": "Version of the image, can be found with powershell: Get-AzVMImage -Location eastus -PublisherName MicrosoftWindowsDesktop -Offer windows-10 -Skus 19h2-evd"
 			}
 		},
 		"ScriptUri": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com/TomHickling/WVD-Images/master/1.AzureImageBuilder/SetupGoldenImage.ps1",
+			"defaultValue": "https://raw.githubusercontent.com/Shane6712/WVDImages/master/1.AzureImageBuilder/SetupGoldenImage.ps1",
 			"metadata": {
 				"description": "Location of powershell script to customize your image"
 			}
@@ -37,7 +37,7 @@
 		},
 		"ManagedImageName": {
 			"type": "string",
-			"defaultValue": "AIB-Image",
+			"defaultValue": "VDI-AIB-Image",
 			"metadata": {
 				"description": "Name of the managed image, it will be created in the AIB resourcegroup"
 			}

@@ -18,7 +18,7 @@
 			"type": "string",
 			"defaultValue": "18363.720.2003120536",
 			"metadata": {
-				"description": "Version of the image, can be found with powershell: Get-AzVMImage -Location westeurope -PublisherName MicrosoftWindowsDesktop -Offer windows-10 -Skus 19h1-evd"
+				"description": "Version of the image, can be found with powershell: Get-AzVMImage -Location eastus -PublisherName MicrosoftWindowsDesktop -Offer windows-10 -Skus 19h2-evd"
 			}
 		},
 		"ScriptUri": {

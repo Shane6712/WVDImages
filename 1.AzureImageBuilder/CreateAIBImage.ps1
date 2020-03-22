@@ -2,8 +2,7 @@
 
 #Set Variables - Resource Group to deploy into and the ARM template we use later
 $RG = "vdi-aib-east-us-rg"
-$TemplateUri = "https://raw.githubusercontent.com/TomHickling/WVD-Images/master/1.AzureImageBuilder/DeployAnImage.json"
-$TemplateFile = "D:\WVDImage\DeployAnImage.json"
+$TemplateUri = "https://raw.githubusercontent.com/Shane6712/WVDImages/master/1.AzureImageBuilder/DeployAnImage.json"
 
 #Install AZ if not already installed and logged in
 # Install-Module Az -Force

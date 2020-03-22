@@ -12,7 +12,7 @@
 			"value": "vdi-sig-east-us-rg"
 		},
 		"SharedImageGalleryName": {
-			"value": "wvd-shared-image-gallery"
+			"value": "WVDSharedImageGallery"
 		},
 		"SharedImageGalleryDefinitionName": {
 			"value": "wvd-image-definition1"
@@ -21,7 +21,7 @@
 			"value": "latest"
 		},
 		"hostPoolName": {
-			"value": "wvd-sig-hp1"
+			"value": "vdi-sig-hp1"
 		},
 		"rdshNamePrefix": {
 			"value": "vdi-sig"

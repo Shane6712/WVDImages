@@ -55,10 +55,11 @@ Invoke-AzResourceAction -ResourceGroupName $AIBRG -ResourceType Microsoft.Virtua
 
 ##WVD Host pool section
 #Start the WVD host pool deployment
-#New-AzResourceGroup -Name $HPRG -Location $Location
+New-AzResourceGroup -Name $HPRG -Location $Location
 #Create Shared Image Gallery
 #Either Local
 # New-AzResourceGroupDeployment -ResourceGroupName $hprg -TemplateFile $TemplateFile -TemplateParameterFile $TemplateParameterFile -Verbose
 #OR Github
+
 New-AzResourceGroupDeployment -ResourceGroupName $hprg -TemplateURI $TemplateURI -TemplateParameterUri $TemplateParameterURI -Verbose
 
